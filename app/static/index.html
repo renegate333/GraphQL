@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Vault Admin</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2em auto; padding: 0 1em; }
+        h1 { margin-bottom: 0.5em; }
+        .hidden { display: none; }
+        form { display: flex; gap: 0.5em; margin-bottom: 1em; }
+        input { padding: 0.4em; font-size: 1em; }
+        button { padding: 0.4em 1em; cursor: pointer; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1em; }
+        th, td { border: 1px solid #ccc; padding: 0.5em; text-align: left; }
+        th { background: #f5f5f5; }
+        #error { color: red; margin: 0.5em 0; }
+        #status { color: #666; margin: 0.5em 0; }
+    </style>
+</head>
+<body>
+    <h1>Vault Admin</h1>
+
+    <div id="status"></div>
+    <div id="error"></div>
+
+    <!-- Login -->
+    <div id="login-block">
+        <h2>Вход</h2>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="email" required>
+            <input type="password" id="password" placeholder="password" required>
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+
+    <!-- Admin panel -->
+    <div id="admin-block" class="hidden">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h2>Клиенты</h2>
+            <button id="logout-btn">Выйти</button>
+        </div>
+        <button id="create-client-btn">Создать клиента</button>
+        <table id="clients-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>clientId</th>
+                    <th>name</th>
+                    <th>isConfidential</th>
+                    <th>createdAt</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
